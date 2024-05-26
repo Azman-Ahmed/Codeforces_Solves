@@ -16,10 +16,17 @@ const int MOD = 1e9 + 7;
 
 void solve()
 {
-    lli n;
-    cin>>n;
-    vector<lli> veca(n);
-    for(int i = 0; i<n; i++) cin>>veca[i];
+    lli n, m;
+    cin>>n>>m;
+
+    if(n<m) cout<<"No"<<endl;
+    else if(m==n) cout<<"Yes"<<endl;
+    else
+    {
+        if((n-m)%2==1) cout<<"No"<<endl;
+        else cout<<"Yes"<<endl;
+    }
+
 
 
 
