@@ -14,6 +14,7 @@ lli dp[3][1000005], trace[3][1000005];
 
 const int MOD = 1e9 + 7;
 
+
 void solve()
 {
     lli n, m;
