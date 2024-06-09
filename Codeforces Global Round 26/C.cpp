@@ -18,28 +18,27 @@ const int MOD = 1e9 + 7;
 
 void solve()
 {
-    lli n, c = 0;
+    lli n, sum = 0;
     cin>>n;
 
     vector<lli> veca(n);
     for(lli i=0; i<n; i++)
     {
         cin>>veca[i];
+        sum+=veca[i];
+    }
+    sum = abs(sum);
+    lli tem2 = 0, tem1 = 0;
+    for (lli i = 0; i < n; i++)
+    {
+        tem2 = max(abs(tem2 + veca[i]), abs(tem1 + veca[i]));
+        tem1 += veca[i];
     }
 
-    for(lli i=0; i<n; i++)
-    {
-        if(veca[i]>=0)
-        {
-            c = abs(c);
-            c = c + veca[i];
-        }
-        else
-        {
-            c = c + veca[i];
-        }
-    }
-    cout<<abs(c)<<endl;
+    cout<<max(tem2, sum)<<endl;
+
+
+
 
 
 }
