@@ -19,7 +19,7 @@ void solve()
 {
     lli n;
     cin>>n;
-    vector<int> veca(n);
+    vector<lli> veca(n);
     map<int, int> mp;
 
     for(int i=0; i<n; i++)
@@ -28,27 +28,14 @@ void solve()
         mp[veca[i]]++;
     }
 
-    if(n==1)
-    {
-        if(veca[0]==0) cout<<1<<endl;
-        else cout<<0<<endl;
-
-        return;
-    }
-
-    sort(veca.begin(), veca.end());
-
-    lli track = 0, ans = 0;
+    lli mx = -1, sum = 0, ans = 0;
     for(int i=0; i<n; i++)
     {
-        track+=veca[i];
-        if(i==0 && mp[track]>1)
-        {
-            ans++;
-        }
-        else if(i!=0 && mp[track]>0) ans++;
+        mx = max(mx, veca[i]);
+        sum+=veca[i];
+        if(sum==2*mx) ans++;
     }
-    cout<<ans<<" eije"<<endl;
+    cout<<ans<<endl;
 }
 
 int main()
