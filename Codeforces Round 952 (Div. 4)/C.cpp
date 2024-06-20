@@ -20,15 +20,13 @@ void solve()
     lli n;
     cin>>n;
     vector<lli> veca(n);
-    map<int, int> mp;
-
     for(int i=0; i<n; i++)
     {
         cin>>veca[i];
-        mp[veca[i]]++;
     }
 
     lli mx = -1, sum = 0, ans = 0;
+
     for(int i=0; i<n; i++)
     {
         mx = max(mx, veca[i]);
