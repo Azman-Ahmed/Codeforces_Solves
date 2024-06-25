@@ -18,53 +18,25 @@ const int MOD = 1e9 + 7;
 void solve()
 {
     lli x, y, k;
-
     cin>>x>>y>>k;
 
-    while(1)
+    while(x>=y && k>0)
     {
-        if(x%y==0)
+        lli t = min(k, y - x%y);
+        k-=t;
+        x+=t;
+        while(x%y==0)
         {
-            while(1)
-            {
-                if(x%y==0)
-                {
-                    k--;
-                    x = x/y;
-                }
-                else break;
-            }
-        }
-        else
-        {
-            lli a = x/y + 1;
-            lli tem = a*y - x;
-            if(tem>k)
-            {
-                cout<<x+k<<endl;
-                break;
-            }
-            else if(tem==k)
-            {
-                cout<<1<<endl;
-                break;
-            }
-            else
-            {
-                k = k - tem;
-                x = a;
-            }
-        }
-        if(k==0)
-        {
-            cout<<x<<endl;
-            break;
+            x/=y;
         }
     }
 
+    if(x<y)
+    {
+        x = (x - 1 + k) % (y - 1) + 1;
+    }
 
-
-
+    cout<<x<<endl;
 }
 
 int main()
