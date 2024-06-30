@@ -15,24 +15,11 @@ const int MOD = 1e9 + 7;
 
 void solve()
 {
-    string s1, s2;
-    cin>>s1>>s2;
-    int n = s1.size();
-    int m = s2.size();
+    lli n, k;
+    cin>>n>>k;
 
-    int found = n;
-
-    for(int i=0; i<m; i++)
-    {
-        if(s2[i]==s1[0])
-        {
-            found = i;
-            break;
-        }
-    }
-
-
-
+    if(n==1) cout<<1<<endl;
+    else cout<<(n-1)*k + 1<<endl;
 
 }
 
